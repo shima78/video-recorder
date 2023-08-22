@@ -67,7 +67,7 @@ async function uploadVideo() {
     }
     uploading.value = false;
     uploadProgress.value = 0;
-
+    videoBlob.value= null;
     // Here, we implement actual uploading logic to the server
   }
 }
@@ -85,9 +85,9 @@ onBeforeUnmount(() => {
   <Timer v-if="recording" :time="timeout/1000"/>
   <video ref="video" autoplay></video>
   <div class="card">
-    <button @click="startRecording" :disabled="recording">Record</button>
-    <button @click="stopRecording" :disabled="!recording">Stop</button>
-    <button @click="uploadVideo" :disabled="!videoBlob">
+    <button @click="startRecording" :disabled="recording || uploading">Record</button>
+    <button @click="stopRecording" :disabled="!recording || uploading">Stop</button>
+    <button @click="uploadVideo" :disabled="!videoBlob || recording">
       Upload Recorded File
     </button>
   </div>
