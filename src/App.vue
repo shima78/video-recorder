@@ -4,7 +4,7 @@ import VideoRecorder from "./components/VideoRecorder.vue";
 
 <template>
   <img class="logo" src="./assets/logo.svg" alt="Logo" />
-  <VideoRecorder :timeout="10000" />
+  <VideoRecorder :timeout="30000" />
 </template>
 
 <style scoped>

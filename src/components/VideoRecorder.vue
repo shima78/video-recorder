@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, onBeforeUnmount, Ref } from "vue";
+import Timer from "./Timer/Timer.vue";
 const video = ref();
 const videoStream = ref();
 const mediaRecorder = ref();
@@ -62,7 +63,7 @@ async function uploadVideo() {
     uploading.value = true;
     for (let progress = 0; progress <= 100; progress += 10) {
       uploadProgress.value = progress;
-      await new Promise((resolve) => setTimeout(resolve, 5000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
     }
     uploading.value = false;
     uploadProgress.value = 0;
@@ -81,8 +82,8 @@ onBeforeUnmount(() => {
 
 <template>
   <h2>Video Recorder</h2>
+  <Timer v-if="recording" :time="timeout/1000"/>
   <video ref="video" autoplay></video>
-
   <div class="card">
     <button @click="startRecording" :disabled="recording">Record</button>
     <button @click="stopRecording" :disabled="!recording">Stop</button>
