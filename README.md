@@ -51,5 +51,5 @@ yarn run build
 This command should be called after the `yarn run build` command.
 
 ```bash
-yarn preview      # this will run the server on port 4173
+yarn preview      
 ```
