@@ -16,3 +16,40 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
    1. Run `Extensions: Show Built-in Extensions` from VSCode's command palette
    2. Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
 2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+
+## How to install dependencies
+
+```bash
+yarn install
+yarn prepare        # run this command in the development mode only
+```
+
+## How to start development
+
+First, run the development server:
+
+```bash
+yarn dev
+```
+
+Open localhost with your browser to see the result.
+
+You can start editing the page by modifying `src/App.vue`. The page auto-updates as you edit the file.
+
+## How to deploy in production
+
+### Build
+
+First you have to build the project by the following command:
+
+```bash
+yarn run build
+```
+
+### Run in production mode (local)
+
+This command should be called after the `yarn run build` command.
+
+```bash
+yarn preview      # this will run the server on port 4173
+```
